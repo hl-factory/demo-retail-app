@@ -46,7 +46,7 @@ function lineFor(productId: string): HTMLElement {
 /** Read a displayed currency string into a number for arithmetic checks. */
 function parseCurrency(text: string): number {
   // Strip everything except digits, the decimal point, and a leading minus.
-  const cleaned = text.replace(/[^0-9.\-]/g, '');
+  const cleaned = text.replace(/[^0-9.-]/g, '');
   return Number(cleaned);
 }
 
