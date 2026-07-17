@@ -1,0 +1,23 @@
+src/utils/format.ts
+  5109c73ed445c384 8-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.2",
+  "base_commit_sha": "aec7df6a0ac550e8d13e04269a0cec437f19b080",
+  "prompts": {
+    "5109c73ed445c384": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "324c95c7-b02b-46b8-8f87-6937005c9111",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "hl-factory",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
