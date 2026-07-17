@@ -14,7 +14,7 @@ interface AddToCartButtonProps {
  * The `.primary-action` class + CSS variable `--primary-action` make a recolor
  * demo a single-line edit.
  */
-export function AddToCartButton({ product, label = 'Add to cart', className }: AddToCartButtonProps) {
+export function AddToCartButton({ product, label = 'Loop One Buy', className }: AddToCartButtonProps) {
   const { addToCart } = useCart();
   const disabled = product.stock <= 0;
 
