@@ -1,0 +1,25 @@
+src/cart/cart.test.tsx
+  5cc53782aae47efa 67
+src/components/ProductCard.tsx
+  5cc53782aae47efa 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.2",
+  "base_commit_sha": "c296974559c43ac5d09cba3582b21af279f9dacd",
+  "prompts": {
+    "5cc53782aae47efa": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "e0268422-7f25-4903-8df9-d52313ef64e7",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "hl-factory",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 2,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
