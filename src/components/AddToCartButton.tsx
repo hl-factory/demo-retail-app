@@ -27,6 +27,7 @@ export function AddToCartButton({ product, label = 'Add to cart', className }: A
       disabled={disabled}
       onClick={() => addToCart(product)}
       aria-label={`Add ${product.name} to cart`}
+      title={disabled ? 'Out of stock' : `Add ${product.name} to cart`}
     >
       {label}
     </button>
