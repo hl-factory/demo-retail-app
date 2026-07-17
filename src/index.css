@@ -113,7 +113,7 @@ body {
 
 /* Primary action button (themeable target) */
 .primary-action {
-  background: var(--primary-action);
+  background: #16a34a;
   color: var(--primary-action-text);
   border: none;
   border-radius: 8px;
