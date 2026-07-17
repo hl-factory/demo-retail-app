@@ -257,6 +257,14 @@ body {
   width: 100%;
 }
 
+.product-card__add:not(:disabled) {
+  background: #16a34a;
+}
+
+.product-card__add:hover:not(:disabled) {
+  background: #15803d;
+}
+
 /* Product image placeholder */
 .product-image {
   aspect-ratio: 1 / 1;
