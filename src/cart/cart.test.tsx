@@ -64,7 +64,7 @@ describe('cart + checkout', () => {
       expect(buttons.length).toBe(PRODUCTS.length);
       for (const btn of buttons) {
         expect(btn.tagName).toBe('BUTTON');
-        expect(btn.textContent).toBe('Add to cart');
+        expect(btn.textContent).toBe('Fresh Buy');
       }
       // In-stock buttons are enabled and carry the primary-action class.
       const inStockBtn = within(cardFor(inStock[0].id)).getByTestId('add-to-cart') as HTMLButtonElement;
