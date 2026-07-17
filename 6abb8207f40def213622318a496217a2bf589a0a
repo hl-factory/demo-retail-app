@@ -1,0 +1,23 @@
+src/index.css
+  ead7bb1d8b314f9a 2-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.2",
+  "base_commit_sha": "6abb8207f40def213622318a496217a2bf589a0a",
+  "prompts": {
+    "ead7bb1d8b314f9a": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "6c8478d2-9002-4389-a83f-ba5f87795a5f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "hl-factory",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 2,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
