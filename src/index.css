@@ -121,11 +121,18 @@ body {
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .primary-action:hover:not(:disabled) {
   background: var(--primary-action-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.primary-action:focus-visible {
+  outline: 2px solid var(--primary-action-hover);
+  outline-offset: 2px;
 }
 
 .primary-action--disabled,
