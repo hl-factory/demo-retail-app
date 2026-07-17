@@ -405,4 +405,55 @@ describe('cart + checkout', () => {
       expect(screen.getByTestId('cart-count').textContent).toBe('0');
     });
   });
+
+  describe('quantity input draft — clearing the field does NOT remove the line', () => {
+    it('preserves the line while the field is momentarily empty, then restores on blur', () => {
+      render(<App />);
+      const p = inStockProduct();
+      // Add the product twice so the line has a non-trivial quantity.
+      fireEvent.click(within(cardFor(p.id)).getByTestId('add-to-cart'));
+      fireEvent.click(within(cardFor(p.id)).getByTestId('add-to-cart'));
+      // Navigate to the cart (avoid pending user-event timers).
+      fireEvent.click(screen.getByTestId('cart-link'));
+
+      const input = within(lineFor(p.id)).getByTestId('cart-line-qty') as HTMLInputElement;
+      expect(input).toHaveValue(2);
+      expect(screen.getByTestId('cart-count').textContent).toBe('2');
+
+      // Simulate the user selecting-all and clearing the field to type a
+      // replacement value. This must NOT delete the line.
+      fireEvent.change(input, { target: { value: '' } });
+
+      // The line is still present and the cart count is unchanged.
+      expect(screen.getAllByTestId('cart-line').length).toBe(1);
+      expect(screen.getByTestId('cart-count').textContent).toBe('2');
+
+      // Blurring the empty field restores the committed quantity (no removal).
+      fireEvent.blur(input);
+      expect(input).toHaveValue(2);
+      expect(screen.getAllByTestId('cart-line').length).toBe(1);
+      expect(screen.getByTestId('cart-count').textContent).toBe('2');
+    });
+
+    it('typing a valid replacement into a cleared field commits the new quantity', () => {
+      render(<App />);
+      const p = PRODUCTS.find((prod) => prod.stock >= 5)!;
+      fireEvent.click(within(cardFor(p.id)).getByTestId('add-to-cart'));
+      fireEvent.click(screen.getByTestId('cart-link'));
+      const input = within(lineFor(p.id)).getByTestId('cart-line-qty') as HTMLInputElement;
+      expect(input).toHaveValue(1);
+
+      // Clear, then type a valid replacement (within stock).
+      fireEvent.change(input, { target: { value: '' } });
+      expect(screen.getAllByTestId('cart-line').length).toBe(1);
+      fireEvent.change(input, { target: { value: '4' } });
+
+      // The new quantity is committed immediately (valid numeric entry).
+      expect(input).toHaveValue(4);
+      expect(screen.getByTestId('cart-count').textContent).toBe('4');
+      expect(within(lineFor(p.id)).getByTestId('cart-line-subtotal').textContent).toBe(
+        formatPrice(p.price * 4),
+      );
+    });
+  });
 });

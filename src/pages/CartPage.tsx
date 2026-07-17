@@ -1,4 +1,5 @@
 import { useCart } from '../cart/CartContext';
+import { CartLineQty } from '../cart/CartLineQty';
 import { useNav } from '../nav/NavContext';
 import { formatPrice } from '../utils/format';
 
@@ -25,7 +26,6 @@ export function CartPage() {
       <h1 id="cart-heading">Your cart</h1>
       <ul className="cart-lines" data-testid="cart-lines">
         {lines.map((line) => {
-          const atStockMax = line.quantity >= line.product.stock;
           return (
             <li
               key={line.product.id}
@@ -37,42 +37,12 @@ export function CartPage() {
                 <p className="cart-line__name">{line.product.name}</p>
                 <p className="cart-line__unit">{formatPrice(line.product.price)} each</p>
               </div>
-              <div className="cart-line__qty" data-testid="cart-line-qty-group">
-                <button
-                  type="button"
-                  className="qty-step"
-                  data-testid="cart-line-dec"
-                  aria-label={`Decrease ${line.product.name} quantity`}
-                  onClick={() => decrement(line.product.id)}
-                >
-                  &minus;
-                </button>
-                <input
-                  id={`qty-${line.product.id}`}
-                  type="number"
-                  min={1}
-                  max={line.product.stock}
-                  value={line.quantity}
-                  data-testid="cart-line-qty"
-                  onChange={(e) => setQuantity(line.product.id, Number(e.target.value))}
-                />
-                <button
-                  type="button"
-                  className="qty-step"
-                  data-testid="cart-line-inc"
-                  aria-label={`Increase ${line.product.name} quantity`}
-                  disabled={atStockMax}
-                  title={atStockMax ? 'Max stock reached' : undefined}
-                  onClick={() => increment(line.product.id)}
-                >
-                  +
-                </button>
-                {atStockMax && (
-                  <span className="cart-line__max-note" data-testid="cart-line-max">
-                    Max stock
-                  </span>
-                )}
-              </div>
+              <CartLineQty
+                line={line}
+                onSetQuantity={setQuantity}
+                onIncrement={increment}
+                onDecrement={decrement}
+              />
               <p className="cart-line__subtotal" data-testid="cart-line-subtotal">
                 {formatPrice(line.quantity * line.product.price)}
               </p>
