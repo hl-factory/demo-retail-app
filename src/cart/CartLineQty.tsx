@@ -53,8 +53,13 @@ export function CartLineQty({ line, onSetQuantity, onIncrement, onDecrement }: C
     commitIfValid(raw);
   }
 
-  function handleBlur(): void {
-    const trimmed = draft.trim();
+  function handleBlur(e: React.FocusEvent<HTMLInputElement>): void {
+    // Read the live DOM value from the event target rather than the `draft`
+    // closure state. The closure can be stale when blur fires in the same tick
+    // as the preceding change (React batches the state update), so the DOM is
+    // the source of truth for what the user actually sees at blur time.
+    const raw = e.target.value;
+    const trimmed = raw.trim();
     if (trimmed === '' || !Number.isFinite(Number(trimmed)) || Number(trimmed) < 1) {
       // Restore the last committed quantity — never remove the line on blur.
       setDraft(String(line.quantity));
