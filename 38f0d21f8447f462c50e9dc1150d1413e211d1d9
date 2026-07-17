@@ -1,0 +1,27 @@
+src/cart/cart.test.tsx
+  86ea095f0e9cb131 67
+src/components/AddToCartButton.tsx
+  86ea095f0e9cb131 17
+src/index.css
+  86ea095f0e9cb131 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.2",
+  "base_commit_sha": "38f0d21f8447f462c50e9dc1150d1413e211d1d9",
+  "prompts": {
+    "86ea095f0e9cb131": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "42adad38-a64e-4e07-bfde-f2ed50058711",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "hl-factory",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 3,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}
