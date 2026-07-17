@@ -1,0 +1,27 @@
+src/index.css
+  e4de376e094175cf 116
+src/cart/cart.test.tsx
+  e4de376e094175cf 67
+src/components/AddToCartButton.tsx
+  e4de376e094175cf 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.2",
+  "base_commit_sha": "67ddf19e7cfb5ce2cce7270ca46b49e498067f4a",
+  "prompts": {
+    "e4de376e094175cf": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "3f348de1-0ada-460c-a710-ca3e0e88200c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "hl-factory",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 3,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}
