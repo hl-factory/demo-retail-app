@@ -50,7 +50,7 @@ export function CheckoutPage() {
           Back to cart
         </button>
         <button type="button" className="primary-action" data-testid="place-order" onClick={goToCatalog}>
-          Place order
+          Buy Now
         </button>
       </div>
     </section>
