@@ -42,7 +42,7 @@ export function ProductCard({ product, onView }: ProductCardProps) {
           </p>
         </div>
       </button>
-      <AddToCartButton product={product} className="product-card__add" />
+      <AddToCartButton product={product} label="Buy now" className="product-card__add" />
     </article>
   );
 }
